@@ -8,6 +8,23 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
     private MediaPlayer FXPlayer;
+    private boolean multiplicationMode = true;
+    
+    public boolean toggleMode(View a) {
+        ImageView imageView = (ImageView) findViewById(R.id.toggle);
+        
+        playSound(R.raw.type);
+        if (multiplicationMode == true) {
+            multiplicationMode = false;
+            imageView.setImageResource(0);
+            imageView.setImageResource(R.id.toggle_divide);
+        } else {
+            multiplicationMode = true;
+            imageView.setImageResource(0);
+            imageView.setImageResource(R.id.toggle_multiply);
+        }
+        return true;
+    }
 
     private void playSound(int _id) {
         try {
@@ -29,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     
     public boolean onQuizClick(View a) {
         Intent intent = new Intent(this, Quiz.class);
+        intent.putExtra("multiplicationMode", multiplicationMode);
         playSound(R.raw.type);
         startActivity(intent);
         return true;
@@ -70,7 +88,13 @@ public class MainActivity extends AppCompatActivity {
 
     private String formatAnswer(int n, int i) {
         int m = n*i;
-        String result = n +"x"+ i +"="+ m;
+        String result = "";
+        if (multiplicationMode == true) {
+            result += n +"x"+ i +"="+ m;
+        } else {
+            result += m +"÷"+ n +"="+ i;
+        }
+        
         if (i==7 || i==8 || i==9) result += ' ';
         if (m<100) result += ' ';
         if (m<10) result += ' ';
@@ -82,5 +106,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        multiplicationMode = true;
+        ImageView imageView = (ImageView) findViewById(R.id.toggle);
+        imageView.setImageResource(0);
+        imageView.setImageResource(R.id.toggle_multiply);
     }
 }
