@@ -7,18 +7,32 @@
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
     android:background="#ffffff">
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/title_activity_quiz"
-        android:id="@+id/startQuiz"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#000066"
-        android:typeface="monospace"
-        android:onClick="onQuizClick"
-        android:paddingBottom="@dimen/activity_vertical_margin"/>
-
+        android:orientation="horizontal"
+        android:background="#ffffff">
+        
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/title_activity_quiz"
+            android:id="@+id/startQuiz"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#000066"
+            android:typeface="monospace"
+            android:onClick="onQuizClick"
+            android:paddingBottom="@dimen/activity_vertical_margin"/>
+            
+        <ImageView
+            android:id="@+id/toggle"
+            android:src=""
+            android:onClick="toggleMode"
+            android:paddingBottom="@dimen/activity_vertical_margin"/>
+            
+    </LinearLayout>
+    
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
