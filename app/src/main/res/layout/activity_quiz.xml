@@ -1,0 +1,114 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+android:orientation="vertical"
+android:paddingBottom="@dimen/activity_vertical_margin" tools:context="carcar.alex.kidsmultiply.Quiz"
+    android:background="#ffffff">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/question_text"
+        android:layout_gravity="center_horizontal"
+        android:typeface="monospace"
+        android:textColor="#000066"
+        android:paddingBottom="@dimen/activity_vertical_margin" />
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/image1"
+                android:src="@mipmap/image1"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/activity_vertical_margin"/>
+            <ImageView
+                android:id="@+id/image2"
+                android:src="@mipmap/image2"
+                android:onClick="onClick" />
+            <ImageView
+                android:id="@+id/image3"
+                android:src="@mipmap/image3"
+                android:onClick="onClick" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/image4"
+                android:src="@mipmap/image4"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/activity_vertical_margin" />
+            <ImageView
+                android:id="@+id/image5"
+                android:src="@mipmap/image5"
+                android:onClick="onClick" />
+            <ImageView
+                android:id="@+id/image6"
+                android:src="@mipmap/image6"
+                android:onClick="onClick" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/image7"
+                android:src="@mipmap/image7"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/activity_vertical_margin" />
+            <ImageView
+                android:id="@+id/image8"
+                android:src="@mipmap/image8"
+                android:onClick="onClick" />
+            <ImageView
+                android:id="@+id/image9"
+                android:src="@mipmap/image9"
+                android:onClick="onClick" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/delete"
+                android:src="@mipmap/delete"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/activity_vertical_margin" />
+            <ImageView
+                android:id="@+id/image0"
+                android:src="@mipmap/image0"
+                android:onClick="onClick" />
+            <ImageView
+                android:id="@+id/enter"
+                android:src="@mipmap/enter"
+                android:onClick="onClick" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/answer_text"
+        android:layout_gravity="center_horizontal"
+        android:typeface="monospace"
+        android:textColor="@android:color/holo_orange_dark"
+        android:paddingBottom="@dimen/activity_vertical_margin" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView"
+        android:src="@mipmap/dino"
+        android:onClick="onDinoClick" />
+
+</LinearLayout>
