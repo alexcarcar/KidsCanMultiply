@@ -11,6 +11,7 @@ import java.util.Random;
 
 public class Quiz extends AppCompatActivity {
 
+    private boolean multiplicationMode = true;
     private int Multiplication_Answer = 0;
     private MediaPlayer FXPlayer;
 
@@ -37,8 +38,13 @@ public class Quiz extends AppCompatActivity {
         // Pick from 2-12; 1 is too easy
         int a = randomGenerator.nextInt(11)+2;
         int b = randomGenerator.nextInt(11)+2;
-        Multiplication_Answer = a * b;
-        String question = a + " x " + b;
+        if (multiplicationMode == true) {
+            Multiplication_Answer = a * b;
+            String question = a + " x " + b;
+        } else {
+            Multiplication_Answer = b;
+            String question = a*b + " ÷ " + a;
+        }
 
         TextView q1 = (TextView) findViewById(R.id.question_text);
         q1.setText(question);
@@ -110,7 +116,9 @@ public class Quiz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-        if (Multiplication_Answer == 0) {
+        if (Multiplication_Answer == 0) { // TODO: Change Multiplicatn_Answer to "answer"
+            Intent intent = getIntent(); 
+            multiplicationMode = (boolean) intent.getExtras().getInt("multiplicationMode"); 
             createQuestion();
         }
     }
