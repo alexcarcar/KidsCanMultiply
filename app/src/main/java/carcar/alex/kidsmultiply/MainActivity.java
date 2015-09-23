@@ -2,8 +2,8 @@ package carcar.alex.kidsmultiply;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -16,14 +16,11 @@ public class MainActivity extends AppCompatActivity {
         playSound(R.raw.type);
         if (multiplicationMode) {
             multiplicationMode = false;
-            
-            getActionBar().setTitle(R.strings.app_name);
-
-            imageView.setImageResource(0);
+            this.setTitle(R.string.app_name2);
             imageView.setImageResource(R.mipmap.toggle_divide);
         } else {
             multiplicationMode = true;
-            imageView.setImageResource(0);
+            this.setTitle(R.string.app_name);
             imageView.setImageResource(R.mipmap.toggle_multiply);
         }
     }
@@ -110,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
 
         multiplicationMode = true;
         ImageView imageView = (ImageView) findViewById(R.id.toggle);
-        imageView.setImageResource(0);
         imageView.setImageResource(R.mipmap.toggle_multiply);
     }
 }

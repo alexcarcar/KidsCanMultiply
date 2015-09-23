@@ -87,12 +87,12 @@ public class Quiz extends AppCompatActivity {
             int l = result.length();
 
             if (n == 100) { // Delete a Character
+                playSound(R.raw.type);
                 if (l == 0) {
                     this.finish();
                     return;
                 }
                 result = result.substring(0,l-1);
-                playSound(R.raw.type);
             } else if ( n==200 ) { // Enter Key Pressed
                 if (l == 0) {
                     playSound(R.raw.type);
