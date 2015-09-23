@@ -25,7 +25,7 @@ public class Table extends AppCompatActivity {
         a1.setGravity(Gravity.CENTER_HORIZONTAL);
 
         TextView t1 = (TextView) findViewById(R.id.title_text);
-        String title = n + "x Table";
+        String title = n + " Table";
         t1.setText(title);
         t1.setGravity(Gravity.CENTER_HORIZONTAL);
     }

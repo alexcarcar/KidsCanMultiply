@@ -1,5 +1,6 @@
 package carcar.alex.kidsmultiply;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +12,8 @@ import java.util.Random;
 
 public class Quiz extends AppCompatActivity {
 
-    private int Multiplication_Answer = 0;
+    private boolean multiplicationMode = true;
+    private int theAnswer = 0;
     private MediaPlayer FXPlayer;
 
     private void playSound(int _id) {
@@ -37,8 +39,14 @@ public class Quiz extends AppCompatActivity {
         // Pick from 2-12; 1 is too easy
         int a = randomGenerator.nextInt(11)+2;
         int b = randomGenerator.nextInt(11)+2;
-        Multiplication_Answer = a * b;
-        String question = a + " x " + b;
+        String question = "";
+        if (multiplicationMode) {
+            theAnswer += a * b;
+            question = a + " x " + b;
+        } else {
+            theAnswer = b;
+            question += a*b + " ÷ " + a;
+        }
 
         TextView q1 = (TextView) findViewById(R.id.question_text);
         q1.setText(question);
@@ -54,7 +62,7 @@ public class Quiz extends AppCompatActivity {
         } catch (Exception e) {
             System.err.println("Attempt is not an integer.");
         }
-        return (attempt == Multiplication_Answer);
+        return (attempt == theAnswer);
     }
 
     public void onClick(View a) {
@@ -110,7 +118,9 @@ public class Quiz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-        if (Multiplication_Answer == 0) {
+        if (theAnswer == 0) {
+            Intent intent = getIntent();
+            multiplicationMode = intent.getExtras().getBoolean("multiplicationMode");
             createQuestion();
         }
     }

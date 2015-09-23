@@ -7,17 +7,43 @@
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
     android:background="#ffffff">
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/title_activity_quiz"
-        android:id="@+id/startQuiz"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#000066"
-        android:typeface="monospace"
-        android:onClick="onQuizClick"
-        android:paddingBottom="@dimen/activity_vertical_margin"/>
+        android:id="@+id/topBar"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/toggle"
+            android:src="@mipmap/toggle_multiply"
+            android:onClick="toggleMode"
+            android:layout_gravity="bottom" />
+
+        <TextView
+            android:layout_width="@dimen/abc_button_padding_horizontal_material"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=""
+            android:id="@+id/textSpace" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/title_activity_quiz"
+            android:id="@+id/startQuiz"
+            android:typeface="monospace"
+            android:onClick="onQuizClick"
+            android:singleLine="false"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:background="#ccffcc"
+            android:padding="10dp" />
+
+    </LinearLayout>
 
     <TableLayout
         android:layout_width="fill_parent"
@@ -102,7 +128,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:src="@mipmap/kids"
-        android:onClick="onKidsClick" />
+        android:onClick="onKidsClick"
         android:paddingTop="10dp" />
 
 </LinearLayout>
