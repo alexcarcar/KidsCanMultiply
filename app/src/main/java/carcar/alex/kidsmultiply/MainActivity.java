@@ -16,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
         playSound(R.raw.type);
         if (multiplicationMode) {
             multiplicationMode = false;
+            
+            getActionBar().setTitle(R.strings.app_name);
+
             imageView.setImageResource(0);
             imageView.setImageResource(R.mipmap.toggle_divide);
         } else {
