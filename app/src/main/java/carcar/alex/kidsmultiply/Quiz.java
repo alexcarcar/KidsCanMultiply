@@ -94,8 +94,10 @@ public class Quiz extends AppCompatActivity {
                 result = result.substring(0,l-1);
                 playSound(R.raw.type);
             } else if ( n==200 ) { // Enter Key Pressed
-                if (l == 0) return;  // Don't beep on just Enter
-
+                if (l == 0) {
+                    playSound(R.raw.type);
+                    return;  // Don't beep on just Enter
+                }
                 if (checkAnswer(result)) {
                     playSound(R.raw.clapping);
                     createQuestion();
