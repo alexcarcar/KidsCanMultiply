@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -12,9 +13,36 @@ import java.util.Random;
 public class Quiz extends AppCompatActivity {
 
     private boolean multiplicationMode = true;
-    private int theAnswer = 0;
+    private int theAnswer = 0, a, b;
     private MediaPlayer FXPlayer;
 
+    public void toggleMode(View v) {
+        ImageView imageView = (ImageView) v;
+        this.setTitle(getResources().getString(multiplicationMode?
+                R.string.practice_divide : R.string.practice_multiply));
+        playSound(R.raw.type);
+        if (multiplicationMode) {
+            multiplicationMode = false;
+            imageView.setImageResource(R.mipmap.toggle_divide);
+        } else {
+            multiplicationMode = true;
+            imageView.setImageResource(R.mipmap.toggle_multiply);
+        }
+        String question = " ";
+        if (multiplicationMode) {
+            theAnswer = a * b;
+            question += a + "x" + b;
+        } else {
+            theAnswer = b;
+            question += a*b + "÷" + a;
+        }
+
+        TextView q1 = (TextView) findViewById(R.id.question_text);
+        q1.setText(question);
+
+        TextView a1 = (TextView) findViewById(R.id.answer_text);
+        a1.setText("");
+    }
     private void playSound(int _id) {
         try {
             if (FXPlayer != null) {
@@ -36,15 +64,16 @@ public class Quiz extends AppCompatActivity {
     private void createQuestion() {
         Random randomGenerator = new Random();
         // Pick from 2-12; 1 is too easy
-        int a = randomGenerator.nextInt(11)+2;
-        int b = randomGenerator.nextInt(11)+2;
-        String question = "";
+        a = randomGenerator.nextInt(11)+2;
+        b = randomGenerator.nextInt(11)+2;
+
+        String question = " ";
         if (multiplicationMode) {
             theAnswer = a * b;
-            question = a + " x " + b;
+            question += a + "x" + b;
         } else {
             theAnswer = b;
-            question += a*b + " ÷ " + a;
+            question += a*b + "÷" + a;
         }
 
         TextView q1 = (TextView) findViewById(R.id.question_text);
@@ -119,9 +148,8 @@ public class Quiz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-        if (theAnswer == 0) {
-            multiplicationMode = true;
-            createQuestion();
-        }
+        multiplicationMode = true;
+        this.setTitle(getResources().getString(R.string.practice_multiply));
+        createQuestion();
     }
 }

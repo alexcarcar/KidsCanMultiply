@@ -2,5 +2,7 @@
     <string name="app_name">Kids Can Multiply!</string>
     <string name="app_name2">Kids Can Divide!</string>
     <string name="title_activity_quiz">Practice</string>
+    <string name="practice_multiply">Practice Multiplying</string>
+    <string name="practice_divide">Practice Dividing</string>
     <string name="title_activity_table">Study Tables</string>
 </resources>
