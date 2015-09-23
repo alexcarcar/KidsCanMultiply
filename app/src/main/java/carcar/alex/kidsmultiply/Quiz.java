@@ -40,7 +40,7 @@ public class Quiz extends AppCompatActivity {
         int b = randomGenerator.nextInt(11)+2;
         String question = "";
         if (multiplicationMode) {
-            theAnswer += a * b;
+            theAnswer = a * b;
             question = a + " x " + b;
         } else {
             theAnswer = b;
