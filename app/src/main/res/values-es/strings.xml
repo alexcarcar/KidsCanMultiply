@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Los ninos pueden multiplicar!</string>
+    <string name="app_name2">Los ninõos pueden Divida!</string>
+    <string name="title_activity_quiz">Practica</string>
+    <string name="practice_multiply">Practica Multiplicando</string>
+    <string name="practice_divide">Practica Divisoria</string>
+    <string name="title_activity_table">Mesas de Estudio</string>
+</resources>
