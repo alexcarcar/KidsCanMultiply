@@ -5,4 +5,12 @@
     <string name="practice_multiply">Pratique Multiplication</string>
     <string name="practice_divide">Pratique Divisant</string>
     <string name="title_activity_table">Tableaux de l\'Etude</string>
+    <string name="about">Propos</string>
+    <string name="app_version">Version: 1.5</string>
+    <string name="made_by">Faite par Alex Carcar</string>
+    <string name="contact_me">Vous pouvez me contacter au</string>
+    <string name="email_address">alexcarcar77@gmail.com</string>
+    <string name="rate">Veuillez evaluer cette application</string>
+    <string name="go_back">Retourner</string>
+    <string name="store_link">https://play.google.com/store/apps/details?id=carcar.alex.kidsmultiply</string>
 </resources>
